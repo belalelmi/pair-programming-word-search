@@ -10,39 +10,40 @@ const transpose = function (word) {
     }
     return resultArr;
 };
-
 const wordSearch = (letters, word) => {
-    const horizontalJoin = letters.map(ls => ls.join(''))
+    const horizontalJoin = letters.map((ls) => ls.join(""));
     // console.log(horizontalJoin);
     for (l of horizontalJoin) {
         // console.log(l);
         if (l.includes(word) || l === word) {
-            return true
+            return true;
         }
-
     }
-    const vertical = transpose(letters)
-    const verticalJoin = vertical.map(ls => ls.join(''))
-    // console.log(verticalJoin);
-    for (l of verticalJoin) {
+    const vertical = transpose(letters);
+    const verticalJoin = vertical.map((ls) => ls.join(""));
+    console.log(verticalJoin);
+    for (let v of verticalJoin) {
         // console.log(l);
-        if (l.includes(word) || l === word) {
-            return true
-        } else {
-            return false;
+        if (v.includes(word) || v === word) {
+            return true;
         }
     }
-}
-console.log(wordSearch([
-    ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
-    ['S', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
-    ['Y', 'F', 'C', 'F', 'Q', 'U', 'A', 'L'],
-    ['H', 'M', 'J', 'T', 'E', 'V', 'R', 'G'],
-    ['W', 'H', 'C', 'S', 'Y', 'E', 'R', 'L'],
-    ['B', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
-    ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
-    ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
-    ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-], 'SEINFELD'))
+    return false
+};
+console.log(
+    wordSearch(
+        [
+            ["A", "W", "C", "F", "Q", "U", "A", "L"],
+            ["S", "E", "I", "N", "F", "E", "L", "D"],
+            ["Y", "F", "C", "F", "K", "U", "A", "L"],
+            ["H", "M", "J", "T", "I", "V", "R", "G"],
+            ["W", "H", "C", "S", "N", "E", "R", "L"],
+            ["B", "F", "R", "E", "G", "E", "Y", "B"],
+            ["U", "B", "T", "W", "A", "P", "A", "I"],
+            ["O", "D", "C", "A", "K", "U", "A", "S"],
+            ["E", "Z", "K", "F", "Q", "U", "A", "L"],
+        ],
+        "KIkNG")
+);
 
-module.exports = wordSearch
+module.exports = wordSearch;
